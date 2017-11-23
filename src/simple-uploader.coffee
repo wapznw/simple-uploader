@@ -102,8 +102,6 @@ class SimpleUploader extends SimpleModule
       processData: false
       contentType: false
       type: 'POST'
-      headers:
-        'X-File-Name': encodeURIComponent(file.name)
       xhr: ->
         req = $.ajaxSettings.xhr()
         if req

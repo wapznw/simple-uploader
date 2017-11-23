@@ -6,7 +6,7 @@
  * Released under the MIT license
  * https://github.com/mycolorway/simple-uploader/license.html
  *
- * Date: 2016-08-2
+ * Date: 2017-11-23
  */
 ;(function(root, factory) {
   if (typeof module === 'object' && module.exports) {
@@ -154,9 +154,6 @@ SimpleUploader = (function(superClass) {
       processData: false,
       contentType: false,
       type: 'POST',
-      headers: {
-        'X-File-Name': encodeURIComponent(file.name)
-      },
       xhr: function() {
         var req;
         req = $.ajaxSettings.xhr();
