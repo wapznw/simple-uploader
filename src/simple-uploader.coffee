@@ -8,6 +8,7 @@ class SimpleUploader extends SimpleModule
     fileKey: 'upload_file'
     connectionCount: 3
     locales: null
+    transformResponse: null
 
   @locales:
     leaveConfirm: 'Are you sure you want to leave?'
@@ -114,6 +115,8 @@ class SimpleUploader extends SimpleModule
       error: (xhr, status, err) =>
         @trigger 'uploaderror', [file, xhr, status]
       success: (result) =>
+        if @opts.transformResponse
+          result = @opts.transformResponse(result)
         @trigger 'uploadprogress', [file, file.size, file.size]
         @trigger 'uploadsuccess', [file, result]
         $(document).trigger 'uploadsuccess', [file, result, @]
